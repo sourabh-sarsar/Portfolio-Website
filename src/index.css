@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-paper: #fafaf7;
+  --color-electric: #0038ff;
+  --color-electric-deep: #001a99;
+  --color-lime: #ccff00;
+  --color-lime-deep: #a3cc00;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  color: #0a0a0a;
+  overflow-x: clip;
+  max-width: 100vw;
+}
+
+::selection {
+  background: #ccff00;
+  color: #0a0a0a;
+}
+
+/* Hand-drawn display style */
+.display-stack {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+/* Layered offset text-shadow for stacked typography (blue offset) */
+.text-shadow-electric {
+  text-shadow:
+    1px 1px 0 #0038ff, 2px 2px 0 #0038ff, 3px 3px 0 #0038ff,
+    4px 4px 0 #0038ff, 5px 5px 0 #0038ff, 6px 6px 0 #0038ff,
+    7px 7px 0 #0038ff, 8px 8px 0 #0038ff, 9px 9px 0 #0038ff,
+    10px 10px 0 #0038ff, 11px 11px 0 #0038ff, 12px 12px 0 #0038ff;
+}
+
+.text-shadow-lime {
+  text-shadow:
+    1px 1px 0 #ccff00, 2px 2px 0 #ccff00, 3px 3px 0 #ccff00,
+    4px 4px 0 #ccff00, 5px 5px 0 #ccff00, 6px 6px 0 #ccff00,
+    7px 7px 0 #ccff00, 8px 8px 0 #ccff00, 9px 9px 0 #ccff00,
+    10px 10px 0 #ccff00;
+}
+
+.text-shadow-black {
+  text-shadow:
+    1px 1px 0 #0a0a0a, 2px 2px 0 #0a0a0a, 3px 3px 0 #0a0a0a,
+    4px 4px 0 #0a0a0a, 5px 5px 0 #0a0a0a, 6px 6px 0 #0a0a0a,
+    7px 7px 0 #0a0a0a, 8px 8px 0 #0a0a0a;
+}
+
+/* Grid background helper */
+.bg-grid-light {
+  background-image:
+    linear-gradient(to right, #0a0a0a08 1px, transparent 1px),
+    linear-gradient(to bottom, #0a0a0a08 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+.bg-grid-electric {
+  background-image:
+    linear-gradient(to right, #0038ff10 1px, transparent 1px),
+    linear-gradient(to bottom, #0038ff10 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+/* Spinning text utility */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+.animate-spin-slow-reverse {
+  animation: spin-slow 18s linear infinite reverse;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Soft float */
+@keyframes soft-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+.animate-soft-float {
+  animation: soft-float 5s ease-in-out infinite;
+}
+
+/* Section reveal */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Hide scrollbar on the Work carousel while keeping native scroll/swipe */
+.work-carousel::-webkit-scrollbar { display: none; }
+.work-carousel { -ms-overflow-style: none; scrollbar-width: none; }
